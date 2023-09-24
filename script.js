@@ -1,3 +1,11 @@
+createGrid();
+
+const pixels = document.querySelectorAll(".pixel");
+
+pixels.forEach(pixel => pixel.addEventListener("mouseover", () => {
+    pixel.style.backgroundColor = "aquamarine";
+}));
+
 function createGrid() {
 
     const gridContainer = document.querySelector(".container");
@@ -17,5 +25,3 @@ function createGrid() {
         }
     });
 }
-
-createGrid();

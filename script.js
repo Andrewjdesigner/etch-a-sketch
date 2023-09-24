@@ -1,16 +1,13 @@
-createGrid();
+createGrid(16);
 
-const pixels = document.querySelectorAll(".pixel");
+const sizeButton = document.querySelector("#grid-size");
+sizeButton.addEventListener("click", chooseSize);
 
-pixels.forEach(pixel => pixel.addEventListener("mouseover", () => {
-    pixel.style.backgroundColor = "aquamarine";
-}));
-
-function createGrid() {
+function createGrid(size) {
 
     const gridContainer = document.querySelector(".container");
     
-    for (i = 0; i < 16; i++) {
+    for (i = 0; i < size; i++) {
         const gridRow = document.createElement("div");
         gridRow.classList.add("row");
         gridContainer.appendChild(gridRow);
@@ -18,10 +15,22 @@ function createGrid() {
 
     const gridRows = document.querySelectorAll(".row");
     gridRows.forEach((row) => {
-        for(j = 0; j < 16; j++) {
+        for(j = 0; j < size; j++) {
             const gridPosition = document.createElement("div");
             gridPosition.classList.add("pixel");
             row.appendChild(gridPosition);
         }
     });
+
+    const pixels = document.querySelectorAll(".pixel");
+    pixels.forEach(pixel => pixel.addEventListener("mouseover", () => {
+        pixel.style.backgroundColor = "aquamarine";
+    }));
+}
+
+function chooseSize() {
+    let sizeChoice = prompt("Select grid size:");
+    const gridContainer = document.querySelector(".container");
+    gridContainer.innerHTML = "";
+    createGrid(sizeChoice);
 }

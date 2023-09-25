@@ -29,8 +29,17 @@ function createGrid(size) {
 }
 
 function chooseSize() {
-    let sizeChoice = prompt("Select grid size:");
-    const gridContainer = document.querySelector(".container");
-    gridContainer.innerHTML = "";
-    createGrid(sizeChoice);
+    let sizeChoice = prompt("Select grid size from 10 to 100");
+    if (sizeChoice != null) {
+        choiceNum = parseFloat(sizeChoice);
+        if (isNaN(choiceNum)) {
+            alert("Please enter a number");
+        } else if (choiceNum < 10 || choiceNum > 100) {
+            alert("Please enter a number between 10 and 100");
+        } else {
+            const gridContainer = document.querySelector(".container");
+            gridContainer.innerHTML = "";
+            createGrid(sizeChoice);
+        }
+    }
 }

@@ -24,7 +24,7 @@ function createGrid(size) {
 
     const pixels = document.querySelectorAll(".pixel");
     pixels.forEach(pixel => pixel.addEventListener("mouseover", () => {
-        pixel.style.backgroundColor = "aquamarine";
+        pixel.style.backgroundColor = "darkorchid";
     }));
 }
 
